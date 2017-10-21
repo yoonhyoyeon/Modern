@@ -1,25 +1,12 @@
-$(document).ready(function(){
-  /*scroll*/
-  $(".scroll").click(function(event) {
-    event.preventDefault();
-    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
-  });
-
-  /*mobile-menu*/
-  $(".menu-btn").click(function(){
-    $(".menu-box").toggleClass('opened');
-    $(".menu-btn").toggleClass('opened');
-  });
-
-  var last_top = 0;
-  $(window).scroll(function() {
-    var this_top = $(this).scrollTop();
-    if( this_top > last_top && this_top > 0 && $(".menu-btn").hasClass("opened") != true) {
-      $(".main-navbar").addClass("hide");
-    }
-    else {
-      $(".main-navbar").removeClass("hide");
-    }
-	   last_top = this_top;
-   });
-});
+{{#foreach posts}}
+<div class="article">
+  <div class="content">
+    <a href="{{url}}"><div class="img" {{#if feature_image}}style="background-image: url({{feature_image}})"{{/if}}><div class="dark"></div></div></a>
+    <div class="text">
+      <a href="{{url}}" class="title">{{title}}</a>
+      <p class="information"><i class="fa fa-clock-o" aria-hidden="true"></i> <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time> / <i class="fa fa-folder-open" aria-hidden="true"></i> {{#if tags}}{{tags}}{{else}}No tag{{/if}}</p>
+      <p class="preview">{{excerpt words="50"}}</p>
+    </div>
+  </div>
+</div>
+{{/foreach}}
