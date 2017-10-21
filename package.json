@@ -1,0 +1,12 @@
+{
+    "name": "Mordern",
+    "description": "made by yoonhyoyeon",
+    "version": "1.0.0",
+    "engines": {
+        "ghost": ">=1.0.0"
+    },
+    "license": "Copyrightⓒ. 2017. yoonhyoyeon. All Rights Reserved.",
+    "config": {
+        "posts_per_page": 6
+    }
+}

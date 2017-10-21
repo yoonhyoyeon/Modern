@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{meta_title}}</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}">
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:400,700" rel="stylesheet">
+  <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'>
+  <script src="https://use.fontawesome.com/a89c49ce9c.js"></script>
+  <script src="{{asset "js/jquery-3.2.1.min.js"}}"></script>
+  <script src="{{asset "js/script.js"}}"></script>
+</head>
+<body id="top">
+  <!-- navbar -->
+  <div class="main-navbar">
+    <a href="{{@blog.url}}">
+      <div class="logo">
+        {{#if @blog.logo}}<img src="{{@blog.logo}}">{{/if}}
+        <p class="title">{{@blog.title}}</p>
+      </div>
+    </a>
+    <div id="menu-btn" class="menu-btn">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+    <div class="menu-box">
+      <div class="container">
+        <a href="{{@blog.url}}" class="{{#is "index"}}active{{/is}}">HOME</a>
+        {{navigation}}
+      </div>
+    </div>
+  </div>
+
+  <!-- body -->
+  {{{body}}}
+
+  <!-- footer -->
+  <div class="footer">
+    <div class="footer-top">
+      <div class="box">
+        <div class="item">
+          <p class="title">About me</p>
+          {{#get "users" limit="1" order="created_at dasc" as |user|}}
+          {{#user}}
+          <a href="{{url}}">
+            <div class="name">
+              {{#if profile_image}}<div class="img" style="background-image: url({{profile_image}})"><div class="dark"></div></div>{{/if}}
+              <p>{{name}}</p>
+            </div>
+          </a>
+          <div class="information">
+            <p>Bio : {{bio}}</p>
+            <p>Address : {{location}}</p>
+            <p>Website : <a href="{{website}}">{{website}}</a></p>
+          </div>
+          {{/user}}
+          {{/get}}
+        </div>
+        <div class="item">
+          <p class="title">Recent Post</p>
+          {{#get "posts" limit="3"}}
+          {{#foreach posts}}
+          <a href="{{url}}">
+            <div class="article">
+              <div class="img" {{#if feature_image}}style="background-image: url({{feature_image}})"{{/if}}><div class="dark"></div></div>
+              <div class="text-area">
+                <p class="a-title">{{title}}</p>
+                <p class="information"><time datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time></p>
+              </div>
+            </div>
+          </a>
+          {{/foreach}}
+          {{/get}}
+        </div>
+        <div class="item">
+          <p class="title">Tag Cloud</p>
+          <div class="tagcloud">
+            {{navigation}}
+          </div>
+        </div>
+        <div class="item">
+          <p class="title">Social</p>
+          <div class="social">
+            <a class="facebook" href="{{facebook_url}}" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i> &nbsp;Facebook</a>
+            <a class="twitter" href="{{twitter_url}}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> &nbsp;Twitter</a>
+            <a class="github" href="https://github.com/yoonhyoyeon" target="_blank"><i class="fa fa-github" aria-hidden="true"></i> &nbsp;Github</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="box">
+        <p class="copyright">Copyrightⓒ. 2017. yoonhyoyeon. All Rights Reserved.</p>
+        <a class="scroll to-top" href="#top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </div>
+</body>

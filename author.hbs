@@ -1,0 +1,26 @@
+{{!< default}}
+<div class="container author">
+  <div class="contents">
+    {{#author}}
+    <div class="author" {{#if cover_image}}style="background-image:url({{cover_image}})"{{/if}}>
+      <div class="dark">
+        <div class="author-img" {{#if profile_image}}style="background-image:url({{profile_image}})"{{/if}}></div>
+        <p class="author-name">{{name}}</p>
+        <p class="author-bio">{{bio}}</p>
+        <p class="information">
+          <i class="fa fa-map-marker" aria-hidden="true"></i> {{#if location}}{{location}}{{/if}} / <i class="fa fa-link" aria-hidden="true"></i> {{#if website}}<a href="{{website}}">{{website}}</a>{{/if}} / <i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
+        </p>
+        <div class="social">
+          <a {{#if twitter}}href="{{twitter_url}}"{{/if}} class="twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Twitter</a>
+          <a {{#if facebook}}href="{{facebook_url}}"{{/if}} class="facebook" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a>
+          <a href="https://github.com/yoonhyoyeon" class="github" target="_blank"><i class="fa fa-github" aria-hidden="true"></i> Github</a>
+        </div>
+      </div>
+    </div>
+    {{/author}}
+    {{>loop}}
+    <div class="paging">
+      {{pagination}}
+    </div>
+  </div>
+</div>

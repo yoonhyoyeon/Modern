@@ -1,0 +1,31 @@
+{{!< default}}
+<!-- header -->
+<div class="header" style="background-image:{{#if tag.feature_image}}url({{tag.feature_image}}){{else}}{{#if @blog.cover_image}}url({{@blog.cover_image}}){{else}}no-cover{{/if}}{{/if}}">
+  <div class="cover">
+    <div class="content">
+      {{#tag}}
+      <a href="{{url}}">
+        <div class="logo">
+          <p class="title">{{name}}</p>
+        </div>
+      </a>
+      <p class="description">
+        {{#if description}}
+            {{description}}
+        {{else}}
+            A {{../pagination.total}}-post collection
+        {{/if}}
+      </p>
+      {{/tag}}
+    </div>
+  </div>
+</div>
+<!-- contents -->
+<div class="container">
+  <div class="contents">
+    {{>loop}}
+    <div class="paging">
+      {{pagination}}
+    </div>
+  </div>
+</div>

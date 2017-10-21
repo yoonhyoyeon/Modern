@@ -1,0 +1,24 @@
+{{!< default}}
+<!-- header -->
+<div class="header" {{#if @blog.cover_image}}style="background-image: url({{@blog.cover_image}})"{{/if}}>
+  <div class="cover">
+    <div class="content">
+      <a href="{{@blog.url}}">
+        <div class="logo">
+          {{#if @blog.logo}}<img class="logo-icon" src="{{@blog.logo}}">{{/if}}
+          <p class="title">{{@blog.title}}</p>
+        </div>
+      </a>
+      <p class="description">{{@blog.description}}</p>
+    </div>
+  </div>
+</div>
+<!-- contents -->
+<div class="container">
+  <div class="contents">
+      {{>loop}}
+    <div class="paging">
+      {{pagination}}
+    </div>
+  </div>
+</div>

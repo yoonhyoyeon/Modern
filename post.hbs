@@ -1,0 +1,80 @@
+{{!< default}}
+{{#post}}
+<script id="dsq-count-scr" src="//yoonhyoyoens-blog-1.disqus.com/count.js" async=""></script>
+<!-- img -->
+<div class="post-img" {{#if feature_image}}style="background-image:url({{feature_image}})"{{/if}}><div class="cover"></div></div>
+
+<!-- text -->
+<div class="post-text">
+  <div class="title">
+    <div class="tags">
+      {{tags}}
+    </div>
+    <p class="post-title">{{title}}</p>
+    <p class="information"><i class="fa fa-clock-o" aria-hidden="true"></i> <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time> / <i class="fa fa-user" aria-hidden="true"></i> {{#author}}<a href="{{url}}">{{name}}</a>{{/author}}</p>
+  </div>
+  <div class="post-contents">
+    {{content}}
+  </div>
+</div>
+<div class="post-bottom">
+  {{#author}}
+  <div class="author">
+    <a href="{{url}}">
+      <div class="title">
+        <div class="author-img" {{#if profile_image}}style="background-image:url({{profile_image}})"{{/if}}></div>
+        <p class="author-name">{{name}}</p>
+      </div>
+    </a>
+    <p>Read <a href="{{url}}">more post</a> by this author.</p>
+  </div>
+  {{/author}}
+  <div class="share">
+    <p class="title"><i class="fa fa-share-alt" aria-hidden="true"></i> &nbsp;Share this post</p>
+    <div class="box">
+      <a href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" class="twitter" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" class="facebook" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+      <a href="https://plus.google.com/share?url={{url absolute="true"}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" class="google-plus" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</div>
+<div class="disqus-comment">
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://yoonhyoyoens-blog-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
+</div>
+<div class="more-contents">
+  {{#prev_post}}
+  <div class="item previous-post" {{#if feature_image}}style="background-image: url({{feature_image}})"{{/if}}>
+    <div class="dark">
+      <div class="content">
+        <p class="location"><i class="fa fa-chevron-left" aria-hidden="true"></i> PROVIOUS POST</p>
+        <a href="{{url}}"><p class="title">{{title}}</p></a>
+        <p class="information"><i class="fa fa-clock-o" aria-hidden="true"></i> <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time> &nbsp;/&nbsp; <i class="fa fa-folder-open" aria-hidden="true"></i> {{#if tags}}{{tags}}{{else}}No tag{{/if}}</p>
+      </div>
+    </div>
+  </div>
+  {{/prev_post}}
+  {{#next_post}}
+  <div class="item next-post" {{#if feature_image}}style="background-image: url({{feature_image}})"{{/if}}>
+    <div class="dark">
+      <div class="content">
+          <p class="location">NEXT POST <i class="fa fa-chevron-right" aria-hidden="true"></i></p>
+          <a href="{{url}}"><p class="title">{{title}}</p></a>
+          <p class="information"><i class="fa fa-clock-o" aria-hidden="true"></i> <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time> &nbsp;/&nbsp; <i class="fa fa-folder-open" aria-hidden="true"></i> {{#if tags}}{{tags}}{{else}}No tag{{/if}}</p>
+      </div>
+    </div>
+  </div>
+  {{/next_post}}
+</div>
+{{/post}}
