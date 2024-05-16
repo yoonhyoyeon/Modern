@@ -1,2 +1,2 @@
 # Modern
-Ghost Theme
+Ghost Theme.
